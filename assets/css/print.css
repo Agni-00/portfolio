@@ -205,14 +205,18 @@ em,i{font-style:normal}
 .pg-photo-row figcaption em{font-style:normal;margin-left:auto;font-size:6pt;letter-spacing:.16em;opacity:.8}
 
 /* ---- P5 版式项目页 ---- */
-.pg-book{display:grid;grid-template-columns:74mm 1fr;gap:7mm;align-items:start;margin-bottom:8mm}
+.pg-book{display:grid;grid-template-columns:minmax(0,1fr) 62mm;gap:8mm;align-items:start;margin-bottom:8mm}
 .pg-book figure img{width:100%;height:auto;box-shadow:0 6mm 12mm -7mm rgba(40,32,20,.5);background:#fff}
-.pg-book-cover figcaption{margin-top:2.4mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
-.pg-book-side figure img{width:100%;height:auto;box-shadow:0 4mm 10mm -6mm rgba(40,32,20,.45);background:#fff}
-.pg-book-side figure figcaption{margin-top:2.2mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
+.pg-book-toc figcaption{margin-top:2.4mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
+.pg-book-side{padding-top:0}
+.pg-book-full{margin:0 0 4mm}
+.pg-book-full img{display:block;width:100%;height:auto;box-shadow:0 6mm 12mm -7mm rgba(40,32,20,.5);background:#fff}
+.pg-book-full figcaption{margin-top:2.2mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
+.pg-meta--row{grid-template-columns:repeat(4,minmax(0,1fr));gap:4mm 6mm;border-top:.35pt solid var(--line);padding-top:3mm}
+.pg-book-note{margin:2mm 0 0;font-size:7.4pt;line-height:1.9;color:var(--muted)}
 .pg-meta{
   display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm;
-  margin:6mm 0 0;padding-top:3mm;border-top:.35pt solid var(--line);
+  margin:0;padding-top:1mm;
 }
 .pg-meta dt{font-size:6pt;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
 .pg-meta dd{margin:0;font-size:8pt;letter-spacing:.03em}
@@ -233,8 +237,7 @@ em,i{font-style:normal}
   font-family:var(--serif);font-size:5.4pt;letter-spacing:.1em;color:var(--ink);
 }
 
-/* ---- P7 细节选看 ---- */
-.pg-detail{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm;margin-bottom:6mm}
+/* ---- P7 细节选看 ---- */.pg-detail{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm;margin-bottom:6mm}
 .pg-detail figure{position:relative;overflow:hidden;background:#DCD5C6}
 .pg-detail img{width:100%;height:auto}
 .pg-detail figcaption{
@@ -254,6 +257,18 @@ em,i{font-style:normal}
   font-size:15pt; line-height:1.6; letter-spacing:.01em;
 }
 .pg-quote span{font-size:6.4pt;letter-spacing:.14em;color:var(--muted);white-space:nowrap;padding-bottom:1mm}
+
+/* ---- P8 视觉设计（涂图 App） ---- */
+.pg-ui{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm}
+.pg-ui figure img{
+  display:block;width:100%;height:auto;
+  border:.35pt solid var(--line);
+}
+.pg-ui figcaption{margin-top:1.8mm;font-size:6.4pt;letter-spacing:.05em;color:var(--muted)}
+.pg-ui figcaption b{
+  font-family:var(--serif);font-weight:500;font-size:7.2pt;
+  color:var(--ink);letter-spacing:.05em;margin-right:2mm;
+}
 
 /* ---- P8 联系 ---- */
 .pg-contact{
