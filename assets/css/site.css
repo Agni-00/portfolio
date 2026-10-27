@@ -662,6 +662,45 @@ body[data-theme="dark"] .rail-dot b{color:rgba(239,233,221,.6)}
   line-height:2.05; color:var(--muted);
 }
 
+/* 涂图章节：动效 */
+.ui-hero{overflow:hidden}
+.js .ui-hero img{
+  clip-path:inset(0 100% 0 0);
+  transform:scale(1.045);
+  transition:clip-path 1.5s var(--ease-out),transform 1.7s var(--ease-out);
+}
+.js .ui-hero.is-in img{clip-path:inset(0 0 0 0);transform:scale(1)}
+.ui-slide{transition:transform .7s var(--ease)}
+.ui-slide img{transition:transform 1.3s var(--ease),border-color .5s}
+.ui-slide:hover img{transform:scale(1.018);border-color:rgba(239,233,221,.42)}
+.ui-slide figcaption b{transition:color .4s}
+.ui-slide:hover figcaption b{color:var(--accent)}
+
+.ui-marquee{
+  position:relative; overflow:hidden;
+  margin-top:clamp(24px,3.6vw,46px);
+  padding:clamp(9px,1.3vw,15px) 0;
+  border-top:1px solid var(--ln); border-bottom:1px solid var(--ln);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.ui-track{
+  display:flex; align-items:center; width:max-content;
+  animation:ui-marquee 54s linear infinite;
+}
+.ui-set{display:flex;align-items:center;gap:clamp(8px,1.1vw,16px);padding-right:clamp(8px,1.1vw,16px)}
+.ui-set img{
+  display:block; height:clamp(66px,8vw,116px); width:auto;
+  border:1px solid var(--ln); opacity:.78;
+  transition:opacity .45s var(--ease);
+}
+.ui-marquee:hover .ui-track{animation-play-state:paused}
+.ui-marquee:hover .ui-set img{opacity:1}
+@keyframes ui-marquee{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+
 /* ---------- 05 联系 ---------- */
 .sec-contact{background:var(--paper)}
 .contact-line{
@@ -862,6 +901,9 @@ body.lb-open{overflow:hidden}
   .js .reveal{opacity:1;transform:none;transition:none}
   .scroll-line{animation:none}
   .ph img,.spread img,.nav,.lb,.cover-photo img{transition:none !important}
+  .js .ui-hero img{clip-path:none;transform:none;transition:none}
+  .ui-track{animation:none}
+  .ui-slide img{transition:none}
 }
 
 /* ---------- 打印（备用，PDF 用 print.html） ---------- */
