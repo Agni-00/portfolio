@@ -83,8 +83,8 @@ em,i{font-style:normal}
 }
 .pg-top i{color:var(--accent);padding:0 .3em}
 .pg-cover-body{
-  flex:1; display:grid; grid-template-columns:1fr 72mm;
-  gap:10mm; align-items:end; padding-top:6mm; padding-bottom:2mm;
+  flex:1; display:flex; flex-direction:column;
+  justify-content:center; gap:14mm; padding-top:4mm; padding-bottom:0;
 }
 .pg-cover-copy h1{
   margin:0; font-family:var(--serif); font-weight:500;
@@ -95,8 +95,8 @@ em,i{font-style:normal}
 }
 .pg-sub{margin-top:4mm; font-family:var(--serif); font-size:12.5pt; letter-spacing:.1em}
 .pg-desc{margin-top:3mm; font-size:8.4pt; line-height:1.95; color:var(--muted); letter-spacing:.02em}
-.pg-cover-photo{position:relative;height:196mm;overflow:hidden}
-.pg-cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.pg-cover-photo{position:relative;height:104mm;overflow:hidden;margin:0}
+.pg-cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 .pg-cover-photo figcaption{
   position:absolute;left:0;bottom:0;right:0;
   padding:3mm;font-size:6.2pt;letter-spacing:.14em;color:#F2EDE3;
