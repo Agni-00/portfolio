@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#F4F0E8"/>
+  <rect x="4.5" y="4.5" width="55" height="55" fill="none" stroke="#16140F" stroke-opacity=".18"/>
+  <text x="32" y="43" text-anchor="middle" font-family="'Noto Serif SC','Songti SC',SimSun,serif" font-size="34" fill="#16140F">林</text>
+</svg>

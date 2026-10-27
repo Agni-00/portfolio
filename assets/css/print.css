@@ -1,0 +1,282 @@
+@charset "utf-8";
+/* 林峰 · 作品集 2026 —— A4 打印/PDF 版式 */
+
+@font-face{
+  font-family:"Serif SC";
+  src:url("../fonts/serif.woff2") format("woff2");
+  font-weight:200 900; font-style:normal; font-display:block;
+}
+@font-face{
+  font-family:"Sans SC";
+  src:url("../fonts/sans.woff2") format("woff2");
+  font-weight:200 900; font-style:normal; font-display:block;
+}
+
+:root{
+  --paper:#F4F0E8;
+  --ink:#16140F;
+  --ink-2:#3B362B;
+  --muted:#7E776A;
+  --line:rgba(22,20,15,.18);
+  --accent:#A5392B;
+  --serif:"Serif SC","Noto Serif SC","Songti SC",SimSun,serif;
+  --sans:"Sans SC","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:ui-monospace,Consolas,monospace;
+  --pad:16mm;
+}
+
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{
+  font-family:var(--sans); color:var(--ink);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  font-size:9.2pt; line-height:1.85;
+}
+.page{
+  position:relative;
+  width:210mm; height:296.6mm;
+  padding:var(--pad);
+  background:var(--paper);
+  overflow:hidden;
+  page-break-after:always;
+  break-after:page;
+  display:flex; flex-direction:column;
+}
+.page:last-of-type{page-break-after:auto;break-after:auto}
+img{display:block;max-width:100%}
+figure{margin:0}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+em,i{font-style:normal}
+.hl{color:var(--accent)}
+.dim{color:var(--muted)}
+.mono{font-family:var(--mono)}
+.mt{margin-top:2.2mm !important}
+
+/* ---- 页眉页脚 ---- */
+.pg-head{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:baseline;
+  gap:4mm; padding-top:2.2mm;
+  border-top:.35pt solid var(--line);
+  margin-bottom:8mm;
+}
+.pg-no{font-family:var(--serif);font-size:7.5pt;letter-spacing:.14em;color:var(--accent)}
+.pg-head h2{margin:0;font-family:var(--serif);font-weight:500;font-size:26pt;line-height:1.05;letter-spacing:.01em}
+.pg-en{font-size:6.6pt;letter-spacing:.32em;color:var(--muted);text-transform:uppercase}
+.pg-foot{
+  margin-top:auto; padding-top:2.5mm;
+  border-top:.35pt solid var(--line);
+  display:flex; justify-content:space-between; gap:6mm;
+  font-size:6.4pt; letter-spacing:.08em; color:var(--muted);
+}
+.pg-label{font-size:6.6pt;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-bottom:2.4mm}
+.pg-label em{font-style:normal;font-size:6pt;letter-spacing:.24em;color:var(--accent);margin-left:1mm}
+
+/* ---- P1 封面 ---- */
+.pg-cover{padding:var(--pad) var(--pad) 12mm}
+.pg-top{
+  display:flex; justify-content:space-between;
+  border-bottom:.35pt solid var(--line);
+  padding-bottom:2.2mm;
+  font-size:6.6pt; letter-spacing:.26em; color:var(--muted); text-transform:uppercase;
+}
+.pg-top i{color:var(--accent);padding:0 .3em}
+.pg-cover-body{
+  flex:1; display:grid; grid-template-columns:1fr 72mm;
+  gap:10mm; align-items:end; padding-top:6mm; padding-bottom:2mm;
+}
+.pg-cover-copy h1{
+  margin:0; font-family:var(--serif); font-weight:500;
+  font-size:104pt; line-height:.9; letter-spacing:-.045em;
+}
+.pg-latin{
+  margin-top:4mm; font-size:6.4pt; letter-spacing:.56em; color:var(--muted); text-transform:uppercase;
+}
+.pg-sub{margin-top:4mm; font-family:var(--serif); font-size:12.5pt; letter-spacing:.1em}
+.pg-desc{margin-top:3mm; font-size:8.4pt; line-height:1.95; color:var(--muted); letter-spacing:.02em}
+.pg-cover-photo{position:relative;height:196mm;overflow:hidden}
+.pg-cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.pg-cover-photo figcaption{
+  position:absolute;left:0;bottom:0;right:0;
+  padding:3mm;font-size:6.2pt;letter-spacing:.14em;color:#F2EDE3;
+  background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0));
+}
+.pg-cover-foot{
+  margin-top:8mm; padding-top:2.5mm; border-top:.35pt solid var(--line);
+  display:flex; justify-content:space-between; gap:6mm;
+  font-size:6.4pt; letter-spacing:.08em; color:var(--muted);
+}
+.pg-cover-foot i{color:var(--accent);padding:0 .25em}
+.pg-vert{
+  position:absolute; left:5mm; top:50%; transform:translateY(-50%);
+  writing-mode:vertical-rl; text-orientation:upright;
+  font-family:var(--serif); font-size:6.4pt; letter-spacing:.4em; color:var(--muted); opacity:.85;
+}
+
+/* ---- P2 关于 ---- */
+.pg-statement{
+  font-family:var(--serif); font-weight:400;
+  font-size:23pt; line-height:1.5; letter-spacing:-.005em;
+  margin:2mm 0 12mm;
+}
+.pg-statement--sm{font-size:19pt;line-height:1.55;margin-bottom:14mm}
+.pg-cols-3{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:8mm; padding-top:4mm; border-top:.35pt solid var(--line);
+}
+.pg-cols-3 p{font-size:8.4pt;line-height:1.9;color:var(--ink-2);margin-bottom:.8mm}
+.pg-strong{font-family:var(--serif);font-size:10.4pt !important;color:var(--ink) !important;margin-bottom:2mm !important}
+.pg-skills li{position:relative;padding-left:3.4mm;font-size:8.2pt;line-height:1.85;color:var(--ink-2)}
+.pg-skills li::before{content:"";position:absolute;left:0;top:1.6mm;width:1.9mm;height:.3pt;background:var(--accent)}
+.pg-note{
+  margin-top:12mm; padding-top:4mm; border-top:.35pt solid var(--line);
+  display:grid; grid-template-columns:1fr 1fr; gap:8mm;
+}
+.pg-note p{font-family:var(--serif);font-size:8.8pt;line-height:2.05;color:var(--ink-2)}
+
+/* 目录（P2 底部） */
+.pg-toc{margin-top:auto;padding-top:4mm;border-top:.35pt solid var(--line)}
+.pg-toc .pg-label{margin-bottom:1mm}
+.pg-toc ol{display:grid}
+.pg-toc li{
+  display:grid;grid-template-columns:10mm 1fr auto 14mm;align-items:baseline;gap:3mm;
+  padding:2.9mm 0;border-bottom:.35pt solid var(--line);
+}
+.pg-toc li span{
+  font-family:var(--serif);font-size:6.4pt;letter-spacing:.1em;color:var(--accent);
+}
+.pg-toc li b{font-family:var(--serif);font-weight:500;font-size:11pt;letter-spacing:.05em}
+.pg-toc li em{font-style:normal;font-size:7pt;letter-spacing:.08em;color:var(--muted)}
+.pg-toc li i{font-style:normal;font-family:var(--serif);font-size:6.6pt;color:var(--muted);text-align:right}
+
+/* ---- P3 新媒体 ---- */
+.pg-lead{font-family:var(--serif);font-size:11.6pt;line-height:1.75;margin-bottom:7mm}
+.pg-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:.35pt solid var(--line);border-bottom:.35pt solid var(--line);
+  margin-bottom:8mm;
+}
+.pg-stats > div{padding:4.5mm 3mm 4.5mm 0}
+.pg-stats > div + div{padding-left:4mm;border-left:.35pt solid var(--line)}
+.pg-stats b{
+  display:block; font-family:var(--serif); font-weight:400;
+  font-size:25pt; line-height:1; letter-spacing:-.02em;
+}
+.pg-stats small{font-size:9pt;color:var(--accent);margin-left:.4mm}
+.pg-stats span{display:block;margin-top:2.4mm;font-size:6.4pt;letter-spacing:.2em;color:var(--muted)}
+.pg-media{display:grid;grid-template-columns:60mm 60mm 1fr;gap:5mm;align-items:start}
+.pg-media figure{border:.35pt solid var(--line);padding:1.6mm;background:#0E0E0D;border-radius:2.2mm;overflow:hidden}
+.pg-media figure img{width:100%;height:auto;border-radius:1.4mm}
+.pg-media figure figcaption{
+  margin-top:1.6mm; font-size:6.1pt; letter-spacing:.04em; color:#B9B2A4; line-height:1.7;
+}
+.pg-media figure figcaption b{display:block;font-family:var(--serif);font-weight:500;font-size:7.4pt;color:#EFE9DD;letter-spacing:.06em}
+.pg-method{border-top:.35pt solid var(--line);padding-top:3.4mm}
+.pg-method ol{display:grid;gap:4.2mm}
+.pg-method li{display:grid;grid-template-columns:6mm 1fr;gap:2mm}
+.pg-method li > span{font-family:var(--serif);font-size:6.4pt;letter-spacing:.1em;color:var(--accent);padding-top:.5mm}
+.pg-method b{display:block;font-family:var(--serif);font-weight:500;font-size:8.6pt;letter-spacing:.03em}
+.pg-method p{margin-top:.8mm;font-size:7.2pt;line-height:1.85;color:var(--muted)}
+
+/* ---- P4 摄影 ---- */
+.pg-photo .pg-lead{margin-bottom:6mm}
+.pg-band{position:relative;height:96mm;overflow:hidden;margin-bottom:5mm}
+.pg-band img{width:100%;height:100%;object-fit:cover}
+.pg-band figcaption{
+  position:absolute;left:0;bottom:0;right:0;padding:3mm;
+  display:flex;align-items:baseline;gap:3mm;
+  font-size:6.6pt;letter-spacing:.12em;color:#EDE7DB;
+  background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0));
+}
+.pg-band figcaption span{font-family:var(--serif);color:#E0866E}
+.pg-band figcaption em{font-style:normal;margin-left:auto;letter-spacing:.18em;font-size:6.2pt;opacity:.8}
+.pg-photo-row{display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:5mm}
+.pg-photo-row figure{position:relative;overflow:hidden}
+.pg-photo-row img{width:100%;height:52mm;object-fit:cover}
+.pg-photo-row--two img{height:62mm;object-position:50% 35%}
+.pg-photo-row figcaption{
+  position:absolute;left:0;bottom:0;right:0;padding:2.6mm;
+  display:flex;align-items:baseline;gap:2.6mm;
+  font-size:6.4pt;letter-spacing:.12em;color:#EDE7DB;
+  background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0));
+}
+.pg-photo-row figcaption span{font-family:var(--serif);color:#E0866E}
+.pg-photo-row figcaption em{font-style:normal;margin-left:auto;font-size:6pt;letter-spacing:.16em;opacity:.8}
+
+/* ---- P5 版式项目页 ---- */
+.pg-book{display:grid;grid-template-columns:74mm 1fr;gap:7mm;align-items:start;margin-bottom:8mm}
+.pg-book figure img{width:100%;height:auto;box-shadow:0 6mm 12mm -7mm rgba(40,32,20,.5);background:#fff}
+.pg-book-cover figcaption{margin-top:2.4mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
+.pg-book-side figure img{width:100%;height:auto;box-shadow:0 4mm 10mm -6mm rgba(40,32,20,.45);background:#fff}
+.pg-book-side figure figcaption{margin-top:2.2mm;font-size:6.6pt;letter-spacing:.04em;color:var(--muted)}
+.pg-meta{
+  display:grid;grid-template-columns:1fr 1fr;gap:3mm 6mm;
+  margin:6mm 0 0;padding-top:3mm;border-top:.35pt solid var(--line);
+}
+.pg-meta dt{font-size:6pt;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+.pg-meta dd{margin:0;font-size:8pt;letter-spacing:.03em}
+.pg-system{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;
+  padding-top:4mm;border-top:.35pt solid var(--line);
+  margin-top:auto;
+}
+.pg-system p{font-size:7.6pt;line-height:1.9;color:var(--muted)}
+
+/* ---- P6 全部内页 ---- */
+.pg-spreads{display:grid;grid-template-columns:repeat(4,1fr);gap:3.4mm}
+.pg-spreads figure{position:relative;overflow:hidden;background:#DCD5C6}
+.pg-spreads img{width:100%;height:auto}
+.pg-spreads figcaption{
+  position:absolute;left:1.2mm;bottom:1mm;
+  padding:.3mm 1.4mm;background:rgba(244,240,232,.92);
+  font-family:var(--serif);font-size:5.4pt;letter-spacing:.1em;color:var(--ink);
+}
+
+/* ---- P7 细节选看 ---- */
+.pg-detail{display:grid;grid-template-columns:1fr 1fr;gap:5mm 5mm;margin-bottom:6mm}
+.pg-detail figure{position:relative;overflow:hidden;background:#DCD5C6}
+.pg-detail img{width:100%;height:auto}
+.pg-detail figcaption{
+  margin-top:2mm;font-size:6.6pt;line-height:1.8;letter-spacing:.03em;color:var(--muted);
+}
+.pg-detail figcaption span{font-family:var(--serif);color:var(--accent);letter-spacing:.14em;margin-right:2mm}
+.pg-detail-note{margin-top:9mm;padding-top:4mm;border-top:.35pt solid var(--line)}
+.pg-detail-note p:last-child{font-size:7.8pt;line-height:1.95;color:var(--muted)}
+
+/* P6 底部引句 */
+.pg-quote{
+  margin-top:auto; padding-top:5mm; border-top:.35pt solid var(--line);
+  display:flex; justify-content:space-between; align-items:flex-end; gap:10mm;
+}
+.pg-quote p{
+  margin:0; font-family:var(--serif); font-weight:400;
+  font-size:15pt; line-height:1.6; letter-spacing:.01em;
+}
+.pg-quote span{font-size:6.4pt;letter-spacing:.14em;color:var(--muted);white-space:nowrap;padding-bottom:1mm}
+
+/* ---- P8 联系 ---- */
+.pg-contact{
+  display:grid;grid-template-columns:1fr 44mm;gap:12mm;align-items:start;
+  padding-top:4mm;border-top:.35pt solid var(--line);
+}
+.pg-contact ul{display:grid}
+.pg-contact li{
+  display:grid;grid-template-columns:28mm 1fr;gap:4mm;align-items:baseline;
+  padding:3.4mm 0;border-bottom:.35pt solid var(--line);
+}
+.pg-contact li > span{font-size:6.2pt;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+.pg-contact b{font-family:var(--serif);font-weight:400;font-size:10.6pt;letter-spacing:.04em}
+.pg-qr img{width:44mm;height:44mm;background:#fff;padding:2mm;border:.35pt solid var(--line)}
+.pg-qr figcaption{margin-top:2.4mm;text-align:center;font-size:6pt;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.pg-thanks{
+  margin-top:22mm; font-family:var(--serif); font-size:30pt; letter-spacing:.02em; line-height:1.2;
+  padding-bottom:2mm;
+}
+.pg-thanks span{
+  display:block;margin-top:2.4mm;
+  font-family:var(--sans);font-size:6.4pt;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;
+}
+.pg-colophon{margin-top:auto;padding-top:4mm;border-top:.35pt solid var(--line)}
+.pg-colophon .pg-label{margin-bottom:1.6mm}
+.pg-colophon p:last-child{font-size:7.4pt;line-height:1.95;color:var(--muted);max-width:150mm}
